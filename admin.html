@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NamZone - Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html.html">Home</a>
+    <a href="list.html">Products List</a>
+    <a href="About Us.html">About Us</a>
+    <a href="Contact Us.html"> contactUs</a>
+    <a href="cart.html" class="cart-link">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </a>
+    <a href="admin.html">Admin Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Dashboard Overview -->
+    <div class="overview">
+      <h2>Dashboard Overview</h2>
+      <p>Total Listings: <strong>120</strong></p>
+      <p>Pending Approvals: <strong>25</strong></p>
+      <p>Total Users: <strong>500</strong></p>
+    </div>
+
+    <!-- Manage Pending Listings -->
+    <div class="pending-listings">
+      <h2>Pending Listings</h2>
+      <div class="listing-item">
+        <h3>Smartphone XYZ</h3>
+        <p>Price: N$5000</p>
+        <p>Status: Pending</p>
+        <button onclick="approveListing()">Approve</button>
+        <button onclick="removeListing()">Remove</button>
+      </div>
+      <div class="listing-item">
+        <h3>Laptop ABC</h3>
+        <p>Price: N$8000</p>
+        <p>Status: Pending</p>
+        <button onclick="approveListing()">Approve</button>
+        <button onclick="removeListing()">Remove</button>
+      </div>
+      <!-- More Listings Here -->
+    </div>
+  </div>
+
+  <script>
+    function approveListing() {
+      alert('Listing approved!');
+      // You can later integrate logic to approve the listing (e.g., move to live site, update database)
+    }
+
+    function removeListing() {
+      alert('Listing removed!');
+      // You can later integrate logic to remove the listing from the system (e.g., delete from database)
+    }   // Function to update the cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartCount = document.getElementById('cartCount');
+      cartCount.textContent = cart.length;
+    }
+   // Redirect to login page if not authenticated
+   if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html.html';
+    }
+    function logout() {
+  // Clear the login flag from localStorage
+  localStorage.removeItem('loggedIn');
+  // Redirect to the login page
+  window.location.href = 'index.html.html';
+}
+    // Initialize cart count on page load
+    window.onload = updateCartCount;
+  </script>
+
+</body>
+</html>

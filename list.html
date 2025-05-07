@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NamZone - Electronics Listings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="list.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html.html">Home</a>
+    <a href="list.html">Products List</a>
+    <a href="About Us.html">About Us</a>
+    <a href="Contact Us.html"> contactUs</a>
+    <a href="cart.html" class="cart-link">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </a>
+    <a href="admin.html">Admin Dashboard</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="container">
+    <h1>Electronics Listings</h1>
+
+    <!-- Smartphones Category -->
+    <div class="category">
+      <h2>Smartphones</h2>
+      <div class="product-list">
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Smartphone Model 1" />
+          <h3>Smartphone Model 1</h3>
+          <p>Price: N$4000</p>
+          <button onclick="addToCart('Smartphone Model 1', '4000', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1510557880182-3c5a5e3c8f18" alt="Smartphone Model 2" />
+          <h3>Smartphone Model 2</h3>
+          <p>Price: N$4500</p>
+          <button onclick="addToCart('Smartphone Model 2', '4500', 'https://images.unsplash.com/photo-1510557880182-3c5a5e3c8f18')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1512499617640-c2f9992f0d8b" alt="Smartphone Model 3" />
+          <h3>Smartphone Model 3</h3>
+          <p>Price: N$5000</p>
+          <button onclick="addToCart('Smartphone Model 3', '5000', 'https://images.unsplash.com/photo-1512499617640-c2f9992f0d8b')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Smartphone Model 4" />
+          <h3>Smartphone Model 4</h3>
+          <p>Price: N$5500</p>
+          <button onclick="addToCart('Smartphone Model 4', '5500', 'https://images.unsplash.com/photo-1509395176047-4a66953fd231')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptops Category -->
+    <div class="category">
+      <h2>Laptops</h2>
+      <div class="product-list">
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Laptop Model 1" />
+          <h3>Laptop Model 1</h3>
+          <p>Price: N$8000</p>
+          <button onclick="addToCart('Laptop Model 1', '8000', 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Laptop Model 2" />
+          <h3>Laptop Model 2</h3>
+          <p>Price: N$8500</p>
+          <button onclick="addToCart('Laptop Model 2', '8500', 'https://images.unsplash.com/photo-1518770660439-4636190af475')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d" alt="Laptop Model 3" />
+          <h3>Laptop Model 3</h3>
+          <p>Price: N$9000</p>
+          <button onclick="addToCart('Laptop Model 3', '9000', 'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Laptop Model 4" />
+          <h3>Laptop Model 4</h3>
+          <p>Price: N$9500</p>
+          <button onclick="addToCart('Laptop Model 4', '9500', 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Headphones Category -->
+    <div class="category">
+      <h2>Headphones</h2>
+      <div class="product-list">
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167" alt="Headphone Model 1" />
+          <h3>Headphone Model 1</h3>
+          <p>Price: N$1200</p>
+          <button onclick="addToCart('Headphone Model 1', '1200', 'https://images.unsplash.com/photo-1511367461989-f85a21fda167')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1519204923163-6d2b7d4b1d4f" alt="Headphone Model 2" />
+          <h3>Headphone Model 2</h3>
+          <p>Price: N$1500</p>
+          <button onclick="addToCart('Headphone Model 2', '1500', 'https://images.unsplash.com/photo-1519204923163-6d2b7d4b1d4f')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167" alt="Headphone Model 3" />
+          <h3>Headphone Model 3</h3>
+          <p>Price: N$1800</p>
+          <button onclick="addToCart('Headphone Model 3', '1800', 'https://images.unsplash.com/photo-1511367461989-f85a21fda167')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://images.unsplash.com/photo-1519204923163-6d2b7d4b1d4f" alt="Headphone Model 4" />
+          <h3>Headphone Model 4</h3>
+          <p>Price: N$2000</p>
+          <button onclick="addToCart('Headphone Model 4', '2000', 'https://images.unsplash.com/photo-1519204923163-6d2b7d4b1d4f')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+       // Function to update the cart count
+       function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartCount = document.getElementById('cartCount');
+      cartCount.textContent = cart.length;
+    }
+    // Redirect to login page if not authenticated
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html.html';
+    }
+    function logout() {
+  // Clear the login flag from localStorage
+  localStorage.removeItem('loggedIn');
+  // Redirect to the login page
+  window.location.href = 'index.html.html';
+}
+    // Initialize cart count on page load
+    window.onload = updateCartCount;
+  </script>
+</body>
+</html>

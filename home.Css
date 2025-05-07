@@ -1,0 +1,165 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFA500, #FF4500);
+  color: #fff;
+}
+
+.sidebar {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  height: 100%;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  
+  /* NEW SLIDING PART */
+  transform: translateX(-250px); /* Start hidden off screen */
+  transition: transform 0.4s ease;
+}
+
+.sidebar.show {
+  transform: translateX(0); /* Slide into view */
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover, .sidebar a.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+#menuToggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.cart-link {
+  position: relative;
+}
+
+#cartCount {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: #ff3b3b;
+  color: white;
+  padding: 3px 7px;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.container {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.container p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #FF6347;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #FF4500;
+}
+
+.login-box p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.login-box a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Hide duplicate navbar if needed */
+.navbar { display: none; }

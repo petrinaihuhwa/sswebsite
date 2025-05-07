@@ -1,0 +1,54 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NamZone - Sign Up</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+  <!--  <a href="index.html.html">Home</a>
+    <a href="list.html">Products List</a>
+    <a href="cart.html">Cart</a>
+    <a href="admin.html">Admin Dashboard</a>
+    -->
+  </nav>
+
+  <div class="container">
+    <h1>Create a New Account</h1>
+
+    <!-- Sign Up Section -->
+    <div class="signup-box">
+      <form id="signupForm">
+        <input type="text" id="newUsername" placeholder="Choose a Username" required />
+        <input type="password" id="newPassword" placeholder="Choose a Password" required />
+        <button type="submit">Create Account</button>
+      </form>
+      <p id="signupMessage"></p>
+      <p>Already have an account? <a href="index.html.html">Login here</a></p>
+    </div>
+  </div>
+
+  <!-- Sign Up Script -->
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const newUsername = document.getElementById('newUsername').value;
+      const newPassword = document.getElementById('newPassword').value;
+
+      if (localStorage.getItem('user_' + newUsername)) {
+        document.getElementById('signupMessage').innerText = 'User already exists. Please login.';
+      } else {
+        localStorage.setItem('user_' + newUsername, JSON.stringify({ password: newPassword }));
+        document.getElementById('signupMessage').innerText = 'Account created! Redirecting to login...';
+        setTimeout(() => {
+          window.location.href = 'index.html.html';
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>

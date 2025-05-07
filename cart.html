@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NamZone - Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="cart.css" />
+  <script>
+  
+  </script>
+  
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html.html">Home</a>
+    <a href="list.html">Products List</a>
+    <a href="About Us.html">About Us</a>
+    <a href="Contact Us.html"> contactUs</a>
+    <a href="cart.html" class="cart-link">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </a>
+    <a href="admin.html">Admin Dashboard</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="container">
+    <h1>Your Shopping Cart</h1>
+    <div id="cartItems" class="cart-items"></div>
+    <h2>Total: N$<span id="totalPrice">0.00</span></h2>
+  </div>
+
+  <script>
+    const cartContainer = document.getElementById('cartItems');
+    const totalDisplay = document.getElementById('totalPrice');
+    const cartCount = document.getElementById('cartCount');
+
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += parseFloat(item.price);
+        cartContainer.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="details">
+              <h3>${item.name}</h3>
+              <p>Price: N$${item.price}</p>
+              <button onclick="removeItem(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+      });
+
+      cartCount.textContent = cart.length;
+      totalDisplay.textContent = total.toFixed(2);
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    window.onload = displayCart;
+      // Redirect to login page if not authenticated
+      if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html.html';
+    }
+    function logout() {
+  // Clear the login flag from localStorage
+  localStorage.removeItem('loggedIn');
+  // Redirect to the login page
+  window.location.href = 'index.html.html';
+}
+
+  </script>
+</body>
+</html>
